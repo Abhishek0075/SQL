@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+use imscdb;
+alter table login modify password varchar(20) default "jskdja";
+alter table login modify password varchar(20) not null;
+alter table login add constraint check(age>17);
+alter table login drop column Age;
+alter table login add column Age int default 18;
+insert into login values("Vikram","hlovikram@2021","VIKRAM",19);
+desc login;
+
+create table test(tDate date);
+insert into test values("2022-13-12");
+select * from test;
+=======
 use manyTables;
 insert  employee values("c1003","Akshay",20000,"Thrissur");
 select * from employee order by clientName;
@@ -27,3 +41,7 @@ select * from country inner join language on country.country_code=language.count
 select * from country left join language on country.country_code=language.country_code;
 select * from country right join language on country.country_code=language.country_code;
 select * from country inner join capital on country.country_code=capital.country_code inner join language on country.country_code=language.country_code;
+<<<<<<< Updated upstream
+=======
+>>>>>>> 163728824729303735015947994bc2882472fbf7
+>>>>>>> Stashed changes
