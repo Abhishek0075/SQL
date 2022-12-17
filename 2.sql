@@ -48,7 +48,7 @@ insert into department values
     ("D1003","Integrated Studies","S104",'2014-10-3'),
     ("D1004","Computer Science","S101",'2017-10-3'),
     ("D1005","Mathematics","S105",'2017-4-1');
-
+    
 insert into DLocation values
 	("D1001","South Kalamassery"),
 	("D1001","Edappaly"),
@@ -63,7 +63,52 @@ insert into employee values
     ("S104","Dasan","Wayanad","Male",1200000,"SS15","D1004",45),
     ("S105","Arundhathi","Kollam","Female",50000,"SS16","D1002",39);
     
+desc project;
+select * from department;
+insert into project values
+	("P1001","Computer Vision","Calicut","D1004"),
+	("P1002","Quantum Mechanics","Kochi","D1002"),
+	("P1003","Linear Algebra","Alappuzha","D1005");
+    
+insert into works_On values
+	("S101","P1001",5),
+    ("S103","P1002",6),
+    ("S105","P1003",4);
 
+desc works_On;
 select * from DLocation;
 select * from department;
 select * from employee;
+
+update employee set salary=25000 where SSN="S101";
+
+update department set MgrSSN="S103" where MgrSSN="S102";
+
+delete from employee where SSN="S102";
+
+							# Third Part
+
+CREATE USER user1@'localhost' IDENTIFIED BY 'hlo';
+GRANT SELECT ON employee TO user1@'localhost';
+
+REVOKE SELECT on employee from user1@'localhost';
+
+							# Fourth part
+
+select Name from employee where Name like  "%a_";
+desc employee;
+select * from employee;
+select Sex,count(*) from employee group by Sex;
+
+select avg(salary) from employee where Sex="Female";
+
+select sum(salary) from employee where Sex="Male";
+
+select max(salary),min(salary) from employee where Sex="Male";
+
+select * from employee where salary between 25000 and 50000 ;
+
+select Name,salary from employee where salary in (30000,40000,50000);
+
+# 5 a
+update employee,project set employee.salary=employee.salary*0.25 where PLocation="Kollam";
