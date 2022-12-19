@@ -110,5 +110,15 @@ select * from employee where salary between 25000 and 50000 ;
 
 select Name,salary from employee where salary in (30000,40000,50000);
 
-# 5 a
-update employee,project set employee.salary=employee.salary*0.25 where PLocation="Kollam";
+						# Fifth Part
+                        
+update employee,project set employee.salary=employee.salary*0.25 
+	where employee.DNo=project.DNo and PLocation="Alappuzha";
+
+select employee.Name,project.PLocation from project,employee,works_On 
+	where employee.SSN=works_On.SSN and project.PNo=works_On.PNo and works_On.hours>5;
+
+select * from project left join works_On on project.PNo=works_On.PNo;
+
+select * from project join works_On on project.PNo=works_On.PNo;
+
