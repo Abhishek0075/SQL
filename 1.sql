@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 use imscdb;
 alter table login modify password varchar(20) default "jskdja";
 alter table login modify password varchar(20) not null;
@@ -11,7 +10,7 @@ desc login;
 create table test(tDate date);
 insert into test values("2022-13-12");
 select * from test;
-=======
+
 use manyTables;
 insert  employee values("c1003","Akshay",20000,"Thrissur");
 select * from employee order by clientName;
@@ -41,7 +40,8 @@ select * from country inner join language on country.country_code=language.count
 select * from country left join language on country.country_code=language.country_code;
 select * from country right join language on country.country_code=language.country_code;
 select * from country inner join capital on country.country_code=capital.country_code inner join language on country.country_code=language.country_code;
-<<<<<<< Updated upstream
-=======
->>>>>>> 163728824729303735015947994bc2882472fbf7
->>>>>>> Stashed changes
+
+create user 't1'@'localhost' identified by 'password';
+grant select on db2.capital to 't1'@'localhost';
+show grants for 't1'@'localhost';
+revoke select on capital from 't1'@'localhost';
